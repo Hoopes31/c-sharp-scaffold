@@ -51,6 +51,7 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
+appsettings*
 
 *_i.c
 *_p.c
