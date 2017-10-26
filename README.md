@@ -1,6 +1,8 @@
 # c-sharp-scaffold
 Basic scaffolding for C#
+
 ##Includes
+
 *Sessions
 *JSON Serialization
 *Hidden DB Variables
