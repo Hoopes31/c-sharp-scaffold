@@ -4,11 +4,19 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using DbConnection;
 
 namespace scaffold.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DbConnector _dbConnector;
+ 
+        public HomeController(DbConnector connect)
+        {
+            _dbConnector = connect;
+        }
+        
         [HttpGet]
         [Route("")]
         public IActionResult Index()
