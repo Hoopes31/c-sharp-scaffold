@@ -73,7 +73,7 @@ namespace scaffold.Controllers
                     if(0 != Hasher.VerifyHashedPassword(user, user.password, model.password))
                     {
                         HttpContext.Session.SetInt32("id", user.id);
-                        return RedirectToAction("Index", "Bank");
+                        return RedirectToAction("Index", "NEWController");
                     }
                 }
             }
