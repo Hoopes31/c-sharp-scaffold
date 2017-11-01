@@ -1,0 +1,21 @@
+@model scaffold.Models.UserViewModel
+
+<form asp-controller="Home" asp-action="Register" method="post">
+    <br>
+    <span asp-validation-for="first_name"></span>
+    <input asp-for="first_name" placeholder="First Name" class="form-control"/>
+    <br>
+    <span asp-validation-for="last_name"></span>
+    <input asp-for="last_name" placeholder="Last Name" class="form-control"/>
+    <br>
+    <span asp-validation-for="email"></span>
+    <input asp-for="email" placeholder="Email" class="form-control"/>
+    <br>
+    <span asp-validation-for="password"></span>
+    <input asp-for="password" placeholder="Password" class="form-control"/>
+    <br>
+    <span asp-validation-for="password_confirm"></span>
+    <input type="password" asp-for="password_confirm" placeholder="Confirm Password" class="form-control"/>
+    <br>
+    <button type="submit">Register</button>
+</form>

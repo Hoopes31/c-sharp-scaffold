@@ -1,10 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using scaffold.Models
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Registration</h1>
+            @Html.Partial("Register")
+        </div>
+        <div class="col-sm-6">
+            <h1>Login</h1>
+            @Html.Partial("Login")
+        </div>
     </div>
 </div>
+
