@@ -34,7 +34,6 @@ namespace scaffold.Controllers
         [Route("register")]
         public IActionResult Register(UserViewModel model)
         {
-            System.Console.WriteLine("Check");
             if(ModelState.IsValid)
             {
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
@@ -53,7 +52,7 @@ namespace scaffold.Controllers
                 _context.Add(newUser);
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Bank");
+                return RedirectToAction("Welcome");
             }
             return View(model);
         }
@@ -73,7 +72,7 @@ namespace scaffold.Controllers
                     if(0 != Hasher.VerifyHashedPassword(user, user.password, model.password))
                     {
                         HttpContext.Session.SetInt32("id", user.id);
-                        return RedirectToAction("Index", "NEWController");
+                        return RedirectToAction("Welcome");
                     }
                 }
             }
@@ -85,6 +84,12 @@ namespace scaffold.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        [Route("welcome")]
+        public IActionResult Welcome()
+        {
+            return View();
         }        
 
     }
