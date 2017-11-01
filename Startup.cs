@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Linq;
 using DbConnection;
+using scaffold.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using MySQL.Data.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace scaffold
 {
@@ -29,8 +32,9 @@ namespace scaffold
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<MyContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
             services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            services.AddScoped<DbConnector>();
+            // services.AddScoped<DbConnector>();
             services.AddSession();
             services.AddMvc();
         }
@@ -49,7 +53,6 @@ namespace scaffold
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();

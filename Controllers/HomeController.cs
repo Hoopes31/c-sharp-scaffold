@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Linq;
+using DbConnection;
 using Newtonsoft.Json;
+using scaffold.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using DbConnection;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace scaffold.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DbConnector _dbConnector;
+        private readonly MyContext _context;
  
-        public HomeController(DbConnector connect)
+        public HomeController(MyContext context)
         {
-            _dbConnector = connect;
+            _context = context;
         }
         
         [HttpGet]
