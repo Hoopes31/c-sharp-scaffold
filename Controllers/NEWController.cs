@@ -14,26 +14,20 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace scaffold.Controllers
 {
-    public class BankController : Controller
+    public class NEWController : Controller
     {
         private readonly MyContext _context;
-        public BankController(MyContext context)
+        public NEWController(MyContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        [Route("bank")]
+        [Route("NEW_ROUTE")]
         public IActionResult Index()
         {
             int id = (int)HttpContext.Session.GetInt32("id");
-            System.Console.WriteLine(id);
-            // User user = _context.Users.Include(u => u.account).SingleOrDefault(u => u.id == id);
-            Account account = _context.Accounts;
-            // ViewBag.name = user.first_name;
-            // ViewBag.balance = user.account.balance;
-
-            return View();
+           return View();
         }
     }
 }
