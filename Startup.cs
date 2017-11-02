@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using DbConnection;
 using scaffold.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -33,8 +32,6 @@ namespace scaffold
         {
             // Add framework services.
             services.AddDbContext<MyContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            // services.AddScoped<DbConnector>();
             services.AddSession();
             services.AddMvc();
         }
